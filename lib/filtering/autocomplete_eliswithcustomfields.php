@@ -108,7 +108,7 @@ class generalized_filter_autocomplete_eliswithcustomfields extends generalized_f
             $sql = 'SELECT f.id, f.name, f.shortname, f.datatype '
                 .'FROM {local_eliscore_field} f'
                 .' JOIN {local_eliscore_field_clevels} c ON c.fieldid=f.id'
-                .' WHERE (f.datatype="char" OR f.datatype="text") AND c.contextlevel='.$options['contextlevel'];
+                .' WHERE (f.datatype=\'char\' OR f.datatype=\'text\') AND c.contextlevel='.$options['contextlevel'];
             if (is_array($options['custom_fields'])) {
                 $ids = implode('","',$options['custom_fields']);
                 $sql .= ' AND f.shortname IN ("'.$ids.'")';

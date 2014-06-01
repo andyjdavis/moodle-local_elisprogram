@@ -80,10 +80,10 @@ class deepsight_filter_searchselect extends deepsight_filter_standard {
         $records = $this->DB->get_recordset_sql('
             SELECT DISTINCT id, '.$this->choicesfield.', count(1) as count
               FROM {'.$this->choicestable.'}
-             WHERE '.$this->choicesfield.' != ""
-          GROUP BY '.$this->choicesfield.'
+             WHERE '.$this->choicesfield.' != \'\'
+          GROUP BY '.$this->choicesfield.', id
           ORDER BY count DESC
-             LIMIT 0,5');
+             LIMIT 5 OFFSET 0');
         $choicesfield = $this->choicesfield;
         foreach ($records as $record) {
             $choice = trim($record->$choicesfield);
