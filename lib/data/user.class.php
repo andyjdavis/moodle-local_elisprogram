@@ -651,7 +651,7 @@ class user extends data_object_with_custom_fields {
                   JOIN {'.course::TABLE.'} crs ON cls.courseid = crs.id
                   JOIN {'.instructor::TABLE.'} clsinstr ON cls.id = clsinstr.classid
                  WHERE clsinstr.userid = ?
-              GROUP BY cls.id ';
+              GROUP BY cls.id, crs.name';
         $rs = $DB->get_recordset_sql($select . $sql, array($userid));
         if ($cnt !== null) {
             $cnt = $rs->valid() ? $DB->count_records_sql("SELECT COUNT('x') {$sql}", array($userid))

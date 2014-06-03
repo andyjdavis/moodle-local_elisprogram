@@ -90,7 +90,7 @@ class synchronize {
                        AND ctx.contextlevel = ".CONTEXT_COURSE."
                        AND u.deleted = 0
                        {$userfilter}
-              GROUP BY muid, pmclassid
+              GROUP BY muid, pmclassid, cu.id, crs.id, ecrs.id, stu.id
               ORDER BY muid ASC, pmclassid ASC";
         $params = array_merge($gbrparams, $userparams);
         $users = $DB->get_recordset_sql($sql, $params);

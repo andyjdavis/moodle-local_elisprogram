@@ -357,7 +357,7 @@ class curriculumstudent extends elis_data_object {
                    'ON curcrs.curriculumid = cur.id ';
         $where   = 'WHERE curass.userid = ? ';
         $group   = 'GROUP BY curass.id, curass.curriculumid, curass.completed, curass.timecompleted, curass.credits, '.
-                   'cur.idnumber, cur.name, cur.description, cur.reqcredits ';
+                   'cur.idnumber, cur.name, cur.description, cur.reqcredits, cur.priority, curcrs.position ';
         $sort    = 'ORDER BY cur.priority ASC, cur.name, curcrs.position DESC ';
 
         $sql = $select.$tables.$join.$where.$group.$sort;
